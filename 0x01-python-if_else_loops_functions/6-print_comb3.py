@@ -1,5 +1,6 @@
-for i in range(0, 8):
-    for j in range (1, 10):
-        if i != j and i < j:
-            print("{}{}".format(i, j), end=', ')
-print("{}{}".format(i + 1, j))
+#!/usr/bin/python3
+for a in range(0, 8):
+    for b in range (a+1, 10):
+        if a != b and a < b:
+            print("{}{}".format(a, b), end=', ')
+print("{}{}".format(a+1, b))
