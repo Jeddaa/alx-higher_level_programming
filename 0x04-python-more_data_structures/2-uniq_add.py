@@ -2,8 +2,6 @@
 def uniq_add(my_list=[]):
     unique = []
     total = 0
-    for i in range(len(my_list)):
-        if my_list[i] not in unique:
-            unique.append(i)
-            total += my_list[i]
+    for i in set(my_list):
+        total += i
     return total
