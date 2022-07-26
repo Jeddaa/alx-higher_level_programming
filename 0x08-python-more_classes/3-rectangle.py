@@ -53,5 +53,5 @@ class Rectangle:
     def __str__(self):
         if self.__height == 0 or self.__width == 0:
             return ""
-        draw_rect = "\n".join(["#" * self.__width for rows in range(self.__height)])
-        return draw_rect
+        rec = "\n".join(["#" * self.__width for rows in range(self.__height)])
+        return rec
