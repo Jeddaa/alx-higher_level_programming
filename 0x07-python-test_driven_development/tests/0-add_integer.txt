@@ -1,7 +1,7 @@
 # run test with ``python3 -m doctest -v ./tests/0-add_integer.txt``
 
-Importing the function from module
->>> add_integer = __import__('0-add_integer').add_integer
+Importing the function from module:
+    >>> add_integer = __import__('0-add_integer').add_integer
 
 Testing single int and float parameters:
     >>> add_integer(4)
