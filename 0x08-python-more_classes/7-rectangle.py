@@ -58,7 +58,7 @@ class Rectangle:
         if self.__height == 0 or self.__width == 0:
             return ""
         rec = "\n".join([str(self.print_symbol) *
-            self.__width for rows in range(self.__height)])
+              self.__width for rows in range(self.__height)])
         return rec
 
     """string representation of the rectangle """
