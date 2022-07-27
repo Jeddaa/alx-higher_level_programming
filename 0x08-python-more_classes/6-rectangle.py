@@ -8,7 +8,6 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-       
         type(self).number_of_instances += 1
 
     """retrieve the width"""
@@ -62,10 +61,8 @@ class Rectangle:
     """string representation of the rectangle """
     def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
-    
 
-    """print 'Bye rectangle...' when an instance of rectangle is deleted"""
-    
     def __del__(self):
+        """print 'Bye rectangle...' when an instance of rectangle is deleted"""
         print("Bye rectangle...")
         type(self).number_of_instances -= 1
