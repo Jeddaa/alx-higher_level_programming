@@ -24,6 +24,11 @@ Testing with float and int matrix:
 >>> matrix_divided(matrix, 3)
 [[0.33, -0.73, 1.0, 1.47, 1.67], [-2.2, 2.33, 2.67, 3.33, 3.33]]
 
+Testing matrix as an empty list:
+>>> matrix = []
+>>> matrix_divided(matrix, 3)
+[]
+
 Testing matrix as empty list:
 >>> matrix = [[]]
 >>> print(matrix_divided(matrix, 3))
@@ -111,13 +116,6 @@ ZeroDivisionError: division by zero
 
 Testing matrix with no value:
 >>> matrix_divided(None, 0)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-Testing matrix as an empty list:
->>> matrix = []
->>> print(matrix_divided(matrix, 3))
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
