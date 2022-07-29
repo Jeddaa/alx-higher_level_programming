@@ -51,3 +51,15 @@ Testing empty set:
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
+Testing integer with bool:
+>>> add_integer(1, True)
+Traceback(most recent call last):
+...
+TypeError: b must be an integer
+
+Testing more than 2 args:
+>>> add_integer(1, 2, 3)
+Traceback(most recent call last):
+...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
