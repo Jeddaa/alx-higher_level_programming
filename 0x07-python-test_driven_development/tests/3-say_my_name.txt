@@ -9,6 +9,9 @@ Testing with strings:
 >>> say_my_name("John", "Smith")
 My name is John Smith
 
+>>> say_my_name("Fati")
+My name is Fati
+
 >>> say_my_name("Bob")
 My name is Bob
 
