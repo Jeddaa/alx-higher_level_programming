@@ -88,8 +88,7 @@ Note that an empty list will raise the TypeError.
 
     >>> matrix = []
     >>> print(matrix_divided(matrix, 3))
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    []
 
 But an empty list of lists will succeed.
 
@@ -134,7 +133,7 @@ of different sizes, a new TypeError is raised.
     ... ]
     >>> print(matrix_divided(matrix, 3))
     Traceback (most recent call last):
-    TypeError: Each row of the matrix must have the same size
+    TypeError: each row of the matrix must have the same size
 
 Invalid Divisors
 ================
