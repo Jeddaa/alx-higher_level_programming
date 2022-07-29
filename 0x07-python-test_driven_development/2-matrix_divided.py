@@ -7,8 +7,8 @@ def matrix_divided(matrix, div):
     new_matrix, new_row = [], []
     prev_len = 0
     msg = ('matrix must be a matrix (list of lists) of integers/floats',
-        'each row of the matrix must have the same size',
-            'div must be a number', 'division by zero')
+           'each row of the matrix must have the same size',
+           'div must be a number', 'division by zero')
     if type(matrix) is not list:
         raise TypeError(msg[0])
     for row in matrix:
