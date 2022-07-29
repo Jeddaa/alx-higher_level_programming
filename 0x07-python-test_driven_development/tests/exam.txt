@@ -9,3 +9,9 @@ Testing complex integer:
 Traceback(most recent call last):
 ...
 TypeError: a must be an integer
+
+Testing integer with bool:
+>>> add_integer(1, True)
+Traceback(most recent call last):
+...
+TypeError: b must be an integer
