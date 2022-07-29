@@ -1,0 +1,153 @@
+Importing the function from module
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Success Cases:
+=============
+
+Testing matrix:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 2)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+Testing matrix with float as div:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 2.7)
+[[0.37, 0.74, 1.11], [1.48, 1.85, 2.22]]
+
+Testing matrix with float:
+>>> matrix = [[1.1, -2.2, 3.3], [4.4, 5.5, -6.6]]
+>>> matrix_divided(matrix, 3)
+[[0.37, -0.73, 1.1], [1.47, 1.83, -2.2]]
+
+Testing with float and int matrix:
+>>> matrix = [[1, -2.2, 3, 4.4, 5], [-6.6, 7.00, 8, 9.999, 10]]
+>>> matrix_divided(matrix, 3)
+[[0.33, -0.73, 1.0, 1.47, 1.67], [-2.2, 2.33, 2.67, 3.33, 3.33]]
+
+Testing matrix as an empty list:
+>>> matrix = []
+>>> matrix_divided(matrix, 3)
+[]
+
+Testing matrix as empty list:
+>>> matrix = [[]]
+>>> print(matrix_divided(matrix, 3))
+[[]]
+
+Failed Cases:
+=============
+
+Testing matrix as a string
+>>> matrix = "not a list"
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing list with 2 integers:
+>>> matrix = [[1, 2, 3], [4, 5]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+...
+TypeError: each row of the matrix must have the same size
+
+Testing matrix with string:
+>>> matrix = [["hello"], ["world"]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing matrix with set:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, "hey")
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+Testing div with string:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, "hey")
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+Testing div with bool values:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, True)
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+Testing matrix with bool values:
+>>> matrix = [[1, 2, 3], True]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing matrix with complex number:
+>>> matrix = [[1, 2, 3], [4, 5, 6j]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing matrix with complex number:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 2j)
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+Testing matrix with incomplete argument:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix)
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Testing div with value 0:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+Testing matrix with no value:
+>>> matrix_divided(None, 0)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing div with None:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, None)
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+Testing matrix with string and list:
+>>> matrix = [[1,2,3], "hey"]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing for no args:
+>>> matrix_divided()
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+Testing for 1 arg:
+>>> matrix_divided(matrix)
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Testing for more than 2 args:
+>>> matrix_divided(matrix, 1, 3)
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() takes 2 positional arguments but 3 were given
