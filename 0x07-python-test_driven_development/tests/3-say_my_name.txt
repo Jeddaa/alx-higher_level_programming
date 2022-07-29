@@ -10,7 +10,7 @@ Testing with strings:
     >>> say_my_name("John", "Smith")
     My name is John Smith
 
-    >>>say_my_name("Bob")
+    >>> say_my_name("Bob")
     My name is Bob
 
 Failed Cases:
