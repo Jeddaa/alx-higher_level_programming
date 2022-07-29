@@ -14,6 +14,16 @@ Testing matrix with float as div:
 >>> matrix_divided(matrix, 2.7)
 [[0.37, 0.74, 1.11], [1.48, 1.85, 2.22]]
 
+Testing matrix with float:
+>>> matrix = [[1.1, -2.2, 3.3], [4.4, 5.5, -6.6]]
+>>>matrix_divided(matrix, 3)
+[[0.37, -0.73, 1.1], [1.47, 1.83, -2.2]]
+
+Testing with float and int matrix:
+>>> matrix = [[1, -2.2, 3, 4.4, 5], [-6.6, 7.00, 8, 9.999, 10]
+>>> matrix_divided(matrix, 3)
+[[0.33, -0.73, 1.0, 1.47, 1.67], [-2.2, 2.33, 2.67, 3.33, 3.33]]
+
 Failed Cases:
 =============
 
