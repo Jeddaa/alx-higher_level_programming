@@ -1,5 +1,6 @@
 Importing the function from module
-say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
 
 Success Cases:
 =============
