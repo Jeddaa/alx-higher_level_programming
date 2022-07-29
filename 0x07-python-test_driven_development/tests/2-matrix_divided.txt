@@ -119,3 +119,10 @@ Testing matrix with no value:
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing div with None:
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, None)
+Traceback (most recent call last):
+...
+TypeError: div must be a number
