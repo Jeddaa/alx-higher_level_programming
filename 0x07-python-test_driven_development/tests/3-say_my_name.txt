@@ -22,7 +22,7 @@ Testing with integers:
     Traceback (most recent call last):
     ...
     TypeError: first_name must be a string
-
+    
 Testing with float:
 ::
     >>> say_my_name(5.90)
