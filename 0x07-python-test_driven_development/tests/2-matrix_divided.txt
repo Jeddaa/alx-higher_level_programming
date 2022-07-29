@@ -36,7 +36,7 @@ Testing matrix with set:
 >>> matrix_divided(matrix, "hey")
 Traceback (most recent call last):
 ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+TypeError: div must be a number
 
 Testing div with string:
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
