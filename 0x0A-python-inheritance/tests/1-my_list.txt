@@ -1,0 +1,68 @@
+Importing the function from module
+
+MyList = __import__('1-my_list').MyList
+
+Success Cases:
+=============
+
+Testing MyList with multiple parameters:
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(10)
+>>> my_list.append(7)
+>>> print(my_list)
+[1, 4, 10, 7]
+>>> my_list.print_sorted()
+[1, 4, 7, 10]
+>>> print(my_list)
+[1, 4, 10, 7]
+
+>>> same_list = MyList()
+>>> same_list.append(-3)
+>>> same_list.append(40)
+>>> same_list.append(-9)
+>>> same_list.append(23)
+>>> print(same_list)
+[-3, 40, -9, 23]
+>>> same_list.print_sorted()
+[-9, -3, 23, 40]
+>>> print(same_list)
+[-3, 40, -9, 23]
+
+Testing MyList with boolean value
+>>> new_list = MyList()
+>>> new_list.append(12)
+>>> new_list.append(True)
+>>> new_list.append(2)
+0>>> new_list.append(10)
+>>> print(new_list)
+[12, True, 2, 10]
+>>> new_list.print_sorted()
+[True, 2, 10, 12]
+>>> print(new_list)
+[12, True, 2, 10]
+
+>>> for_list = MyList()
+>>> for_list.append(20)
+>>> print(same_list)
+[20]
+>>> for_list.print_sorted()
+[20]
+>>> print(same_list)
+[20]
+
+Failed Cases:
+=============
+
+>>> same_list = MyList()
+>>> same_list.append(-3)
+>>> same_list.append(40)
+>>> same_list.append("hey")
+>>> same_list.append(23)
+>>> print(same_list)
+[-3, 40, 'hey', 23]
+>>> same_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'str' and 'int'
