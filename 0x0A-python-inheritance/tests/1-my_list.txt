@@ -30,7 +30,7 @@ Testing MyList with multiple parameters:
 >>> print(same_list)
 [-3, 40, -9, 23]
 
-Testing MyList with boolean value
+Testing MyList with boolean value:
 >>> new_list = MyList()
 >>> new_list.append(12)
 >>> new_list.append(True)
@@ -43,6 +43,16 @@ Testing MyList with boolean value
 >>> print(new_list)
 [12, True, 2, 10]
 
+Test MyList with no element:
+>>> no_list = MyList()
+>>> print(no_list)
+[]
+>>> no_list.print_sorted()
+[]
+>>> print(no_list)
+[]
+
+Testing MyList with one element:
 >>> for_list = MyList()
 >>> for_list.append(20)
 >>> print(for_list)
