@@ -35,7 +35,7 @@ Testing MyList with boolean value
 >>> new_list.append(12)
 >>> new_list.append(True)
 >>> new_list.append(2)
-0>>> new_list.append(10)
+>>> new_list.append(10)
 >>> print(new_list)
 [12, True, 2, 10]
 >>> new_list.print_sorted()
@@ -45,11 +45,11 @@ Testing MyList with boolean value
 
 >>> for_list = MyList()
 >>> for_list.append(20)
->>> print(same_list)
+>>> print(for_list)
 [20]
 >>> for_list.print_sorted()
 [20]
->>> print(same_list)
+>>> print(for_list)
 [20]
 
 Failed Cases:
