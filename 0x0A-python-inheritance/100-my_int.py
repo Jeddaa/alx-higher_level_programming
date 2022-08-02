@@ -7,10 +7,11 @@ class MyInt(int):
     def __init__(self, no):
         """initialization of the integer"""
         self.no = no
+
     def __eq__(self, value):
         """ to return true if both are not equal"""
         return self.no != value
 
     def __ne__(self, value):
-        """ to return true if both are not equal"""
+        """to return true if both are not equal"""
         return self.no == value
