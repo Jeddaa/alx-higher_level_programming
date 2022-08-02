@@ -6,5 +6,5 @@ after each line containing a specific string"""
 def append_after(filename="", search_string="", new_string=""):
     with open(filename, "a+", encoding="utf-8") as file1:
         file2 = list(file1)
-        file1.find(search_string)
-        return(file1.write(new_string))
+        file2.find(search_string)
+        return(file2.write(new_string))
