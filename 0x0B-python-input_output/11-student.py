@@ -19,6 +19,7 @@ class Student():
                 if hasattr(self, att):
                     dic[att] = getattr(self, att)
             return dic
+
     def reload_from_json(self, json):
         """Transfer all attributes of json to self"""
         for key, value in json.items():
