@@ -5,8 +5,10 @@ after each line containing a specific string"""
 
 def append_after(filename="", search_string="", new_string=""):
     with open(filename, "r+", encoding="utf-8") as file1:
-        file2 = list(file1)
-        for i in range(len(file2)):
-            print(file2[i])
-            if file2[i] == search_string:
-                print(file1.write(new_string))
+        new_str = ""
+        for i in file1:
+            new_str += i
+            if i == search_string:
+                new_str += new_string
+        file1.seek(0)
+        file1.write(new_str)
