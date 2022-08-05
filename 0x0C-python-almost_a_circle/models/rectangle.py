@@ -41,7 +41,7 @@ class Rectangle(Base):
         """Call to super function to have
         access to all attributes/methods"""
         super().__init__(id)
-    
+
     """retrieving the width"""
     @property
     def width(self):
@@ -56,7 +56,7 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         else:
             self.__width = value
-    
+
     """retrieving the height"""
     @property
     def height(self):
@@ -71,7 +71,7 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         else:
             self.__height = value
-    
+
     """retrieving x"""
     @property
     def x(self):
