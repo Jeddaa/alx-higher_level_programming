@@ -14,15 +14,39 @@ class Square(Rectangle):
     """retrieving the size using the width"""
     @property
     def size(self):
-        return self.__width
+        return self.width
 
-    """setting the width"""
+    """setting the size"""
     @size.setter
     def size(self, value):
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        elif value <= 0:
-            raise ValueError("width must be > 0")
-        else:
-            self.__width = value
+        self.width = value
+        self.height = value
     
+    def __str__(self):
+        return f"[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y}\
+- {self.size}"
+   
+    """assigning arguments to each attributes using args and kwargs"""
+    def update(self, *args, **kwargs):
+        if args:
+            for key, value in enumerate(args):
+                if key == 0:
+                    self.id = value
+                elif key == 1:
+                    self.size = value
+                elif key == 2:
+                    self.x = value
+                elif key == 3:
+                    self.y = value
+            return self.__str__
+        else:
+            for key, value in kwargs.items():
+                if key == "size":
+                    self.size = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
+                elif key == "id":
+                    self.id = value
+            return self.__str__
