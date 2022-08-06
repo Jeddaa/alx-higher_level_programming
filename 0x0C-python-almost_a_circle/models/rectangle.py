@@ -110,13 +110,13 @@ class Rectangle(Base):
     def display(self):
         for h in range(self.__height):
             for e in range(self.__x):
-                print('',end ='')
+                print('', end='')
             for a in range(self.__y):
                 print(' ', end='')
             for w in range(self.__width):
-                print('#', end = '')
+                print('#', end= '')
             print()
 
     """string representation of the rectangle"""
     def __str__(self):
-        return f"[Rectangle {self.id} {self.__x}/\{self.__y} - {self.__width}/{self.__height}"
+        return f"[Rectangle {self.id} {self.__x}/{self.__y} - {self.__width}/{self.__height}"
