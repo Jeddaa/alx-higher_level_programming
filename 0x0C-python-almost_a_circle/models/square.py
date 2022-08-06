@@ -21,11 +21,11 @@ class Square(Rectangle):
     def size(self, value):
         self.width = value
         self.height = value
-    
+
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y}\
 - {self.size}"
-   
+
     """assigning arguments to each attributes using args and kwargs"""
     def update(self, *args, **kwargs):
         if args:
