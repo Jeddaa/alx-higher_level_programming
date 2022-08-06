@@ -110,7 +110,7 @@ class Rectangle(Base):
     def display(self):
         print("\n" * self.__y +
               "\n".join(" " * self.__x + "#" * self.__width
-                         for row in range(self.__height)))
+                        for row in range(self.__height)))
 
     """string representation of the rectangle"""
     def __str__(self):
