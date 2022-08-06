@@ -121,3 +121,32 @@ class Rectangle(Base):
     def __str__(self):
         return f"[Rectangle {self.id} {self.__x}/{self.__y} -\
 {self.__width}/{self.__height}"
+
+    """assigning arguments to each attributes using args and kwargs"""
+    def update(self, *args, **kwargs):
+        if args:
+            for key, value in enumerate(args):
+                if key == 0:
+                    self.id = value
+                elif key == 1:
+                    self.__width = value
+                elif key == 2:
+                    self.__height = value
+                elif key == 3:
+                    self.__x = value
+                elif key == 4:
+                    self.__y = value
+            return self.__str__
+        else:
+            for key, value in kwargs.items():
+                if key == "width":
+                    self.__width = value
+                elif key == "height":
+                    self.__height = value
+                elif key == "x":
+                    self.__x = value
+                elif key == "y":
+                    self.__y = value
+                elif key == "id":
+                    self.id = value
+            return self.__str__
