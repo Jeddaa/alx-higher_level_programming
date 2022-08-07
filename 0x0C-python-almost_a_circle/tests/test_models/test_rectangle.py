@@ -21,7 +21,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             print(Rectangle(10))
 
-    def test_multiple_rectangle(self):
+    def test_rectangle_with_two_args(self):
         """Test without a value for id multiple times"""
         rec1 = Rectangle(8, 18)
         rec2 = Rectangle(12, 9)
@@ -33,3 +33,28 @@ class TestRectangle(unittest.TestCase):
         rec2 = Rectangle(12, 9)
         self.assertEqual(rec1.id, 1)
         self.assertEqual(rec2.id, 2)
+
+    def test_rectangle_with_three_args(self):
+        """Test without a value for id multiple times"""
+        rec1 = Rectangle(8, 18, 2)
+        rec2 = Rectangle(12, 9, 3)
+        self.assertEqual(rec1.id, 1)
+
+    def test_rectangle_with_four_args(self):
+        """Test without a value for id multiple times"""
+        rec1 = Rectangle(8, 18, 2, 1)
+        rec2 = Rectangle(12, 9, 3, 2)
+        self.assertEqual(rec1.id, 1)
+
+    def test_rectangle_with_five_args(self):
+        """Test without a value for id multiple times"""
+        rec1 = Rectangle(8, 18, 2, 0, 2)
+        rec2 = Rectangle(12, 9, 3, 2, 1)
+        self.assertEqual(rec1.id, 1)
+
+    def test_rectangle_with_six_args(self):
+        """Test without a value for id multiple times"""
+        rec1 = Rectangle(8, 18, 2, 0, 2, 6)
+        rec2 = Rectangle(12, 9, 3, 2, 1, 4)
+        with self.assertRaises(TypeError):
+            print(rec1)
