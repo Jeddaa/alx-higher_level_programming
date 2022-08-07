@@ -124,24 +124,24 @@ class Rectangle(Base):
                 if key == 0:
                     self.id = value
                 elif key == 1:
-                    self.__width = value
+                    self.width = value
                 elif key == 2:
-                    self.__height = value
+                    self.height = value
                 elif key == 3:
-                    self.__x = value
+                    self.x = value
                 elif key == 4:
-                    self.__y = value
+                    self.y = value
             return self.__str__
         else:
             for key, value in kwargs.items():
                 if key == "width":
-                    self.__width = value
+                    self.width = value
                 elif key == "height":
-                    self.__height = value
+                    self.height = value
                 elif key == "x":
-                    self.__x = value
+                    self.x = value
                 elif key == "y":
-                    self.__y = value
+                    self.y = value
                 elif key == "id":
                     self.id = value
             return self.__str__
