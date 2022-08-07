@@ -28,6 +28,13 @@ class TestBase(unittest.TestCase):
         b2 = Base()
         self.assertEqual(b1.id, b2.id - 1)
 
+    def test_multiple_bases(self):
+        """Test without a value for id multiple times"""
+        b1 = Base()
+        b2 = Base()
+        self.assertEqual(b1.id, 1)
+        self.assertEqual(b1.id, 2)
+        
     def test_base_with_str(self):
         """Test with a string for id"""
         b1 = Base("hey")
