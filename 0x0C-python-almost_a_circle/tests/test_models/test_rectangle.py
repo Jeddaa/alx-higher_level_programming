@@ -536,7 +536,7 @@ class TestRectangle_update(unittest.TestCase):
     
     def test_update(self):
         """testing update with y as string"""
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
             rec = Rectangle(18, 2, 0, 1, 2)
             print(rec.update(1, 10, 8, 3, "4"))
         
