@@ -5,7 +5,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 
 
-class TestRectangle(unittest.TestCase):
+class TestRectangle_(unittest.TestCase):
     """Define unittests for rectangle"""
     def test_rectangle_isinstance_base(self):
         """Test if Rectangle is an instance of Base"""
@@ -81,17 +81,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(Rectangle(8, 18, 2, 0, 2).__id)
     
-    def test_width_getter(self):
-        """Test gettin width"""
-        rec1 = Rectangle(8, 18, 2, 0, 2)
-        self.assertEqual(rec1.width, 8)
-
-    def test_width_setter(self):
-        """Test setting width"""
-        rec1 = Rectangle(8, 18, 2, 0, 2)
-        rec1.width = 10
-        self.assertEqual(rec1.width, 10)
-
     def test_height_getter(self):
         """Test getting height"""
         rec1 = Rectangle(8, 18, 2, 0, 2)
@@ -135,3 +124,50 @@ class TestRectangle(unittest.TestCase):
         rec1 = Rectangle(8, 18, 2, 0, 2)
         rec1.id = 3
         self.assertEqual(rec1.id, 3)
+
+class TestRectangle_width(unittest.TestCase):
+    def test_width_getter(self):
+        """Test gettin width"""
+        rec1 = Rectangle(8, 18, 2, 0, 2)
+        self.assertEqual(rec1.width, 8)
+
+    def test_width_setter(self):
+        """Test setting width"""
+        rec1 = Rectangle(8, 18, 2, 0, 2)
+        rec1.width = 10
+        self.assertEqual(rec1.width, 10)
+
+    def test_width_as_string(self):
+        """Test width as string"""
+        with self.assertRaises(TypeError, "width must be an integer"):
+            print(Rectangle("hey", 18, 2, 0, 2).width)
+
+    def test_width_as_zero(self):
+        """Test width as zero"""
+        with self.assertRaises(TypeError, "width must be > 0"):
+            print(Rectangle(0, 18, 2, 0, 2).width)
+
+    def test_width_as_bool(self):
+        """Test width as bool"""
+        with self.assertRaises(TypeError, "width must be an integer"):
+            print(Rectangle(True, 18, 2, 0, 2).width)
+
+    def test_width_as_inf(self):
+        """Test width as inf"""
+        with self.assertRaises(TypeError, "width must be an integer"):
+            print(Rectangle(float('inf'), 18, 2, 0, 2).width)
+    
+    def test_width_as_NaN(self):
+        """Test width as NaN"""
+        with self.assertRaises(TypeError, "width must be an integer"):
+            print(Rectangle(float('NaN'), 18, 2, 0, 2).width)
+    
+    def test_width_as_list(self):
+        """Test width as list"""
+        with self.assertRaises(TypeError, "width must be an integer"):
+            print(Rectangle([10], 18, 2, 0, 2).width)
+
+    def test_width_as_set(self):
+        """Test width as set"""
+        with self.assertRaises(TypeError, "width must be an integer"):
+            print(Rectangle({10}, 18, 2, 0, 2).width)
