@@ -620,7 +620,7 @@ class TestRectangle_update(unittest.TestCase):
         """testing update with 6 as string"""
         rec = Rectangle(18, 2, 0, 1, 2)
         print(rec.update(1, 10, 8, 3, 4, 2))
-        self.assertEqual(str(rec), None)
+        self.assertEqual(rec, None)
     
 class TestRectangle_update_kwargs(unittest.TestCase):
     """testing update kwargs of Rectangle class."""
