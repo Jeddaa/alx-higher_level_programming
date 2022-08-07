@@ -193,57 +193,58 @@ class TestRectangle_height(unittest.TestCase):
         rec1.height = 12
         self.assertEqual(rec1.height, 12)
 
-    def test_heigth_as_float(self):
+    def test_height_as_float(self):
         """Test height as float"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle(4.8, 18, 2, 0, 2).height)
+            print(Rectangle(3.8, 18, 2, 0, 2).height)
 
     def test_height_as_string(self):
         """Test height as string"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             print(Rectangle("hey", 18, 2, 0, 2).height)
 
-    def test_height_as_zero(self):
-        """Test height as zero"""
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            print(Rectangle(0, 18, 2, 0, 2).height)
+    def test_width_as_zero(self):
+        """Test width as zero"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            print(Rectangle(0, 18, 2, 0, 2).width)
 
-    def test_height_as_negative(self):
-        """Test height as negative value"""
-        with self.assertRaisesRegex(ValueError, "height must be > 0"):
-            print(Rectangle(-5, 18, 2, 0, 2).height)
+    def test_width_as_negative(self):
+        """Test width as negative value"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            print(Rectangle(-5, 18, 2, 0, 2).width)
 
-    def test_height_as_bool(self):
-        """Test height as bool"""
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle(True, 18, 2, 0, 2).height)
+    def test_width_as_bool(self):
+        """Test width as bool"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(True, 18, 2, 0, 2).width)
 
-    def test_height_as_inf(self):
-        """Test height as inf"""
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle(float('inf'), 18, 2, 0, 2).height)
+    def test_width_as_inf(self):
+        """Test width as inf"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(float('inf'), 18, 2, 0, 2).width)
     
-    def test_height_as_NaN(self):
-        """Test height as NaN"""
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle(float('NaN'), 18, 2, 0, 2).height)
+    def test_width_as_NaN(self):
+        """Test width as NaN"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(float('NaN'), 18, 2, 0, 2).width)
     
-    def test_height_as_list(self):
-        """Test height as list"""
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle([10], 18, 2, 0, 2).height)
+    def test_width_as_list(self):
+        """Test width as list"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle([10], 18, 2, 0, 2).width)
 
-    def test_height_as_set(self):
-        """Test height as set"""
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle({10}, 18, 2, 0, 2).height)
+    def test_width_as_set(self):
+        """Test width as set"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle({10}, 18, 2, 0, 2).width)
 
-    def test_height_as_byte(self):
-        """Test height as byte"""
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle(b'baboon', 18, 2, 0, 2).height)
+    def test_width_as_byte(self):
+        """Test width as byte"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(b'baboon', 18, 2, 0, 2).width)
 
-    def test_height_as_frozenSet(self):
-        """Test height as frozen set"""
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle(frozenset({1, 2, 3}), 18, 2, 0, 2).height)
+    def test_width_as_frozenSet(self):
+        """Test width as frozen set"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(frozenset({1, 2, 3}), 18, 2, 0, 2).width)
+
