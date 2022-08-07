@@ -616,3 +616,16 @@ class TestRectangle_update(unittest.TestCase):
             rec = Rectangle(18, 2, 0, 1, 2)
             print(rec.update(1, 10, 8, 3, "4"))
         
+    def test_update(self):
+        """testing update with 6 as string"""
+        with self.assertRaises(TypeError):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 10, 8, 3, 4, 2))
+    
+class TestRectangle_update_kwargs(unittest.TestCase):
+    """testing update kwargs of Rectangle class."""
+    def test_update_kwargs_one(self):
+        """testing kwargs with one arg"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(id=1)
+        self.assertEqual(str(rec), "[Rectangle] (1) 18/2 - 0/1")
