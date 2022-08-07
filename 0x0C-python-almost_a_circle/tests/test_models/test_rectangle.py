@@ -11,10 +11,15 @@ class TestRectangle(unittest.TestCase):
         """Test if Rectangle is an instance of Base"""
         self.assertIsInstance(Rectangle(13, 9), Base)
 
-    def test_rectangle_with_no_id_args(self):
-        """testing with no value"""
-        rec1 = Rectangle(10, 2)
-        self.assertEqual(rec1.id, 1)
+    def test_rectangle_with_no_args(self):
+        """testing with no argument in rectangle()"""
+        with self.assertRaises(TypeError):
+            print(Rectangle())
+
+    def test_rectangle_with_one_args(self):
+        """testing with only one argument in rectangle()"""
+        with self.assertRaises(TypeError):
+            print(Rectangle(10))
 
     def test_multiple_rectangle(self):
         """Test without a value for id multiple times"""
@@ -28,17 +33,3 @@ class TestRectangle(unittest.TestCase):
         rec2 = Rectangle(12, 9)
         self.assertEqual(rec1.id, 1)
         self.assertEqual(rec2.id, 2)
-
-    def test_rectangle_with_no_args(self):
-        """testing with no argument in rectangle()"""
-        with self.assertRaises(TypeError):
-            print(Rectangle())
-
-    def test_rectangle_with_one_args(self):
-        """testing with only one argument in rectangle()"""
-        with self.assertRaises(TypeError):
-            print(Rectangle(10))
-
-    
-
-    
