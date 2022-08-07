@@ -15,7 +15,7 @@ class TestBase(unittest.TestCase):
     def test_base_with_no_args(self):
         """Test without a value for id"""
         b1 = Base()
-        self.assertEqual(b1.id(), 1)
+        self.assertEqual(b1.id, - 1)
     
     def test_base_with_one_arg(self):
         """Test with a value for id"""
