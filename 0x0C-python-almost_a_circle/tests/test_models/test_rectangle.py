@@ -139,35 +139,40 @@ class TestRectangle_width(unittest.TestCase):
 
     def test_width_as_string(self):
         """Test width as string"""
-        with self.assertRaises(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             print(Rectangle("hey", 18, 2, 0, 2).width)
 
     def test_width_as_zero(self):
         """Test width as zero"""
-        with self.assertRaises(TypeError, "width must be > 0"):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
             print(Rectangle(0, 18, 2, 0, 2).width)
+
+    def test_width_as_negative(self):
+        """Test width as negative value"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            print(Rectangle(-5, 18, 2, 0, 2).width)
 
     def test_width_as_bool(self):
         """Test width as bool"""
-        with self.assertRaises(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             print(Rectangle(True, 18, 2, 0, 2).width)
 
     def test_width_as_inf(self):
         """Test width as inf"""
-        with self.assertRaises(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             print(Rectangle(float('inf'), 18, 2, 0, 2).width)
     
     def test_width_as_NaN(self):
         """Test width as NaN"""
-        with self.assertRaises(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             print(Rectangle(float('NaN'), 18, 2, 0, 2).width)
     
     def test_width_as_list(self):
         """Test width as list"""
-        with self.assertRaises(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             print(Rectangle([10], 18, 2, 0, 2).width)
 
     def test_width_as_set(self):
         """Test width as set"""
-        with self.assertRaises(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             print(Rectangle({10}, 18, 2, 0, 2).width)
