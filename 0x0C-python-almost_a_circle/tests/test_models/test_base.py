@@ -26,7 +26,7 @@ class TestBase(unittest.TestCase):
         """Test without a value for id multiple times"""
         b1 = Base()
         b2 = Base()
-        self.assertEqual(b1.id, b2.id, 2)
+        self.assertEqual(b1.id, 1, b2.id, 2)
 
     def test_base_with_str(self):
         """Test with a string for id"""
@@ -34,7 +34,28 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.id, hey)
 
     def test_base_with_str(self):
-        """Test with a string for id"""
+        """Test with a bool value for id"""
         b1 = Base(True)
         self.assertEqual(b1.id, True)
+
+    def test_base_with_one_floatArg(self):
+        """Test with a float value for id"""
+        b1 = Base(3.9)
+        self.assertEqual(b1.id, 3.9)
+
+    def test_base_with_list(self):
+        """Test with a list value for id"""
+        b1 = Base([1, "hello", 4])
+        self.assertEqual(b1.id,[1, "hello", 4])
+
+    def test_base_with_set(self):
+        """Test with a list value for id"""
+        b1 = Base({1, "hello", 4})
+        self.assertEqual(b1.id,[1, "hello", 4])
+
+    def test_base_with_dict(self):
+        """Test with a dictionary value for id"""
+        b1 = Base({'num': 1, 'name': "hello", 'age': 4})
+        self.assertEqual(b1.id,{'num': 1, 'name': "hello", 'age': 4})
+
 
