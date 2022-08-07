@@ -13,7 +13,8 @@ class TestRectangle(unittest.TestCase):
 
     def test_rectangle_with_no_id_args(self):
         """testing with no value"""
-        self.assertEqual(Rectangle(10, 2).id, 1)
+        rec1 = Rectangle(10, 2)
+        self.assertEqual(rec1.id, 1)
 
     def test_multiple_rectangle(self):
         """Test without a value for id multiple times"""
