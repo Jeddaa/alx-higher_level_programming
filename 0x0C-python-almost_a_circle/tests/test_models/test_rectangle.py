@@ -440,4 +440,33 @@ class TestRectangle_y(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             print(Rectangle(9, 12, 0, frozenset({1, 2, 3}), 2).y)
     
+class TestRectangle_order_of_initiation(unittest.TestCase):
+    def test_width_before_height(self):
+        """Test width as None"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(None, 12j, 3, 2).width)
+
+    def test_width_before_x(self):
+        """Test width as set"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle({10}, 18, True, 0, 2).width)
     
+    def test_width_before_y(self):
+        """Test width as byte"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(b'baboon', 18, 2, [10], 2).width)
+
+    def test_height_before_x(self):
+        """Test height as tupple"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            print(Rectangle(18, (1, 2, 5), True, 0, 2).y)
+
+    def test_height_before_y(self):
+        """Test height as tupple"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            print(Rectangle(18, (1, 2, 5), 10, {1}, 2).y)
+
+    def test_x_before_y(self):
+        """Test x as byte"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            print(Rectangle(12, 8, b'tired', 1j, 2).x)
