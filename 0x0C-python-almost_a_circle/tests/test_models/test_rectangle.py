@@ -493,9 +493,9 @@ class TestRectangle_area(unittest.TestCase):
 
     def test_area(self):
         """Testing area with parameter"""
-        with self.assertRaisesRegex(TypeError):
+        with self.assertRaises(TypeError):
             rec = Rectangle(18, 2, 0, 1, 2)
-            print(rec1.area(1))
+            print(rec.area(1))
     
 class TestRectangle_update(unittest.TestCase):
     def test_update(self):
