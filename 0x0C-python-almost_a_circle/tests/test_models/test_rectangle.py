@@ -196,7 +196,7 @@ class TestRectangle_height(unittest.TestCase):
     def test_heigth_as_float(self):
         """Test height as float"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            print(Rectangle(3.8, 18, 2, 0, 2).height)
+            print(Rectangle(4.8, 18, 2, 0, 2).height)
 
     def test_height_as_string(self):
         """Test height as string"""
