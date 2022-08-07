@@ -470,3 +470,36 @@ class TestRectangle_order_of_initiation(unittest.TestCase):
         """Test x as byte"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             print(Rectangle(12, 8, b'tired', 1j, 2).x)
+
+class TestRectangle_area(unittest.TestCase):
+    """testing the area method of the Rectangle class."""
+
+    def test_area(self):
+        """Testing area"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        self.assertEqual(rec1.area(), 36)
+    
+    def test_area_with_longInt(self):
+        """Testing area"""
+        rec = Rectangle(99988889788888, 888888667598767, 1, 2)
+        self.assertEqual(rec1.area(), 88878991019124613304519101096)
+
+    def test_area(self):
+        """Testing area"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.width = 10
+        rec.height = 13
+        self.assertEqual(rec1.area(), 130)
+
+    def test_area(self):
+        """Testing area with parameter"""
+        with self.assertRaisesRegex(TypeError):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec1.area(1))
+    
+class TestRectangle_update(unittest.TestCase):
+    def test_update(self):
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(1, 2, 3, 4)
+        self.assertEqual(str(rec), "[Rectangle] (1) 4/1 - 2/3")
+    
