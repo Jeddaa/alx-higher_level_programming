@@ -123,12 +123,12 @@ class TestRectangle(unittest.TestCase):
         """Test setting y"""
         rec1 = Rectangle(8, 18, 2, 0, 2)
         rec1.y = 1
-        self.assertEqual(rec1.width, 1)
+        self.assertEqual(rec1.y, 1)
 
     def test_id_getter(self):
         """Test gettin id"""
         rec1 = Rectangle(8, 18, 2, 0, 2)
-        self.assertEqual(rec1.y, 2)
+        self.assertEqual(rec1.id, 2)
 
     def test_id_setter(self):
         """Test setting id"""
