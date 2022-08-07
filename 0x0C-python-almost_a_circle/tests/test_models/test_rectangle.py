@@ -496,7 +496,101 @@ class TestRectangle_area(unittest.TestCase):
         with self.assertRaises(TypeError):
             rec = Rectangle(18, 2, 0, 1, 2)
             print(rec.area(1))
+
+class TestRectangle_Display(unittest.TestCase):
+    def test_display_no_arg(self):
+        """testing display function with no arguments"""
+        with self.assertRaises(TypeError):
+            Rectangle().display()
+
+    def test_display_one_arg(self):
+        """testing display function with one arguments"""
+        with self.assertRaises(TypeError):
+            Rectangle(2).display()
+
+    def test_display_one_str_arg(self):
+        """testing display function with one int arguments"""
+        with self.assertRaises(TypeError):
+            Rectangle("hey").display()
     
+    def test_display_two_str_arg(self):
+        """testing display function with two int arguments"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("hey", "hi").display()
+
+    def test_display_oneStr_oneInt_arg(self):
+        """testing display function with 1 int and 1 str arguments"""
+        with self.assertRaises(TypeError, "width must be an integer"):
+            Rectangle("hey", 3).display()
+
+
+class TestRectangle_str_(unittest.TestCase):
+    def test_str_no_arg(self):
+        """testing __str__ function with no arguments"""
+        with self.assertRaises(TypeError):
+            r =Rectangle()
+            print(r.__str__())
+
+    def test_str_one_arg(self):
+        """testing __str__ function with 1 arguments"""
+        with self.assertRaises(TypeError):
+            r =Rectangle(10)
+            print(r.__str__())
+    
+    def test_str_one_arg(self):
+        """testing __str__ function with 1 arguments"""
+        with self.assertRaises(TypeError):
+            r =Rectangle("hey")
+            print(r.__str__())
+    
+    def test_str_two_arg(self):
+        """testing __str__ function with 2 arguments"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r =Rectangle("hey", 10)
+            print(r.__str__())
+    
+    def test_str_2_arg(self):
+        """testing __str__ function with 2 arguments"""
+        rec = Rectangle(10, 6)
+        print(rec.__str__())
+        self.assertEqual(str(rec), "[Rectangle] (1) 0/0 - 10/6")
+    
+    def test_str_three_arg(self):
+        """testing __str__ function with 3 arguments"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r =Rectangle(11, "hey", 1)
+            print(r.__str__())
+
+    def test_str_3_arg(self):
+        """testing __str__ function with 3 arguments"""
+        rec = Rectangle(10, 6, 3)
+        print(rec.__str__())
+        self.assertEqual(str(rec), "[Rectangle] (1) 3/0 - 10/6")
+
+    def test_str_4_arg(self):
+        """testing __str__ function with 4 arguments"""
+        rec = Rectangle(10, 6, 3, 2)
+        print(rec.__str__())
+        self.assertEqual(str(rec), "[Rectangle] (1) 3/2 - 10/6")
+    
+    def test_str_five_arg(self):
+        """testing __str__ function with 5 arguments"""
+        rec = Rectangle(10, 6, 3, 2, 2)
+        print(rec.__str__())
+        self.assertEqual(str(rec), "[Rectangle] (2) 3/2 - 10/6")
+    
+    def test_str_five_arg(self):
+        """testing __str__ function with 5 arguments"""
+        rec = Rectangle(10, 6, 3, 2, "hi")
+        print(rec.__str__())
+        self.assertEqual(str(rec), "[Rectangle] (hi) 3/2 - 10/6")
+
+    def test_str_six_arg(self):
+        """testing __str__ function with 4 arguments"""
+        with self.assertRaises(TypeError):
+            rec = Rectangle(10, 6, 3, 2)
+            print(rec.__str__())
+        
 class TestRectangle_update(unittest.TestCase):
     def test_update_no_arg(self):
         """testing update function with no arguments"""

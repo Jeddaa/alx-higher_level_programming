@@ -1,55 +1,55 @@
-class TestRectangle_x(unittest.TestCase):
-    def test_heigth_as_float(self):
-        """Test x as float"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, 4.8, 2, 0, 2).x)
-
-    def test_x_as_string(self):
-        """Test x as string"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, "hey", 2, 0, 2).x)
-
-    def test_x_as_zero(self):
-        """Test x as zero"""
-        with self.assertRaisesRegex(ValueError, "x must be > 0"):
-            print(Rectangle(18, 0, 2, 0, 2).x)
-
-    def test_x_as_negative(self):
-        """Test x as negative value"""
-        with self.assertRaisesRegex(ValueError, "x must be > 0"):
-            print(Rectangle(18, -5, 2, 0, 2).x)
-
-    def test_x_as_bool(self):
-        """Test x as bool"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, True, 2, 0, 2).x)
-
-    def test_x_as_inf(self):
-        """Test x as inf"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, float('inf'), 2, 0, 2).x)
+class TestRectangle_y(unittest.TestCase):
+    def test_y_as_zero(self):
+        """Test y as zero"""
+        rec1 = Rectangle(8, 18, 0, 2, 2)
+        self.assertEqual(rec1.y, 0)
     
-    def test_x_as_NaN(self):
-        """Test x as NaN"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, float('NaN'), 2, 0, 2).x)
+    def test_y_as_float(self):
+        """Test y as float"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(18, 20, 4.8, 2).y)
+
+    def test_y_as_string(self):
+        """Test y as string"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(18, 2, "hey", 2, 1).y)
+
+    def test_y_as_negative(self):
+        """Test y as negative value"""
+        with self.assertRaisesRegey(ValueError, "y must be >= 0"):
+            print(Rectangle(10, 9, -5, 0, 2).y)
+
+    def test_y_as_bool(self):
+        """Test y as bool"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(10, 8, True, 0, 2).y)
+
+    def test_y_as_inf(self):
+        """Test y as inf"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(10, 7,  float('inf'), 2, 1).y)
     
-    def test_x_as_list(self):
-        """Test x as list"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, [10], 2, 0, 2).x)
+    def test_y_as_NaN(self):
+        """Test y as NaN"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(11, 6, float('NaN'), 2, 2).y)
+    
+    def test_y_as_list(self):
+        """Test y as list"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(12, 8, [10], 0, 2).y)
 
-    def test_x_as_set(self):
-        """Test x as set"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, {10}, 2, 0, 2).x)
+    def test_y_as_set(self):
+        """Test y as set"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(12, 8, {3}, 0, 2).y)
 
-    def test_x_as_byte(self):
-        """Test x as byte"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, b'baboon', 2, 0, 2).x)
+    def test_y_as_byte(self):
+        """Test y as byte"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(12, 8, b'tired', 0, 2).y)
 
-    def test_x_as_frozenSet(self):
-        """Test x as frozen set"""
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, frozenset({1, 2, 3}), 2, 0, 2).x)
+    def test_y_as_frozenSet(self):
+        """Test y as frozen set"""
+        with self.assertRaisesRegey(TypeError, "y must be an integer"):
+            print(Rectangle(9, 12, frozenset({1, 2, 3}), 0, 2).y)
