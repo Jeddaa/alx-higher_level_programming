@@ -291,7 +291,7 @@ class TestRectangle_x(unittest.TestCase):
     def test_x_as_complex(self):
         """Test x as complex"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            print(Rectangle(18, 0, 2j, 0, 2).x)
+            print(Rectangle(18, 10, 2j, 0, 2).x)
 
     def test_x_as_float(self):
         """Test x as float"""
@@ -379,7 +379,7 @@ class TestRectangle_y(unittest.TestCase):
         """Test y as complex"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             print(Rectangle(18, 2, 2, 2j, 1).y)
-            
+
     def test_y_as_float(self):
         """Test y as float"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
