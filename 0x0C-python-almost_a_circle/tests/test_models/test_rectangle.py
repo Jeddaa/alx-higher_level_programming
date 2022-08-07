@@ -520,7 +520,7 @@ class TestRectangle_Display(unittest.TestCase):
 
     def test_display_oneStr_oneInt_arg(self):
         """testing display function with 1 int and 1 str arguments"""
-        with self.assertRaises(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle("hey", 3).display()
 
 
@@ -549,29 +549,11 @@ class TestRectangle_str_(unittest.TestCase):
             r =Rectangle("hey", 10)
             print(r.__str__())
     
-    def test_str_2_arg(self):
-        """testing __str__ function with 2 arguments"""
-        rec = Rectangle(10, 6)
-        print(rec.__str__())
-        self.assertEqual(str(rec), "[Rectangle] (1) 0/0 - 10/6")
-    
     def test_str_three_arg(self):
         """testing __str__ function with 3 arguments"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r =Rectangle(11, "hey", 1)
             print(r.__str__())
-
-    def test_str_3_arg(self):
-        """testing __str__ function with 3 arguments"""
-        rec = Rectangle(10, 6, 3)
-        print(rec.__str__())
-        self.assertEqual(str(rec), "[Rectangle] (1) 3/0 - 10/6")
-
-    def test_str_4_arg(self):
-        """testing __str__ function with 4 arguments"""
-        rec = Rectangle(10, 6, 3, 2)
-        print(rec.__str__())
-        self.assertEqual(str(rec), "[Rectangle] (1) 3/2 - 10/6")
     
     def test_str_five_arg(self):
         """testing __str__ function with 5 arguments"""
@@ -588,7 +570,7 @@ class TestRectangle_str_(unittest.TestCase):
     def test_str_six_arg(self):
         """testing __str__ function with 4 arguments"""
         with self.assertRaises(TypeError):
-            rec = Rectangle(10, 6, 3, 2)
+            rec = Rectangle(10, 6, 3, 2, 1, 2)
             print(rec.__str__())
         
 class TestRectangle_update(unittest.TestCase):
