@@ -25,8 +25,8 @@ class TestRectangle(unittest.TestCase):
         """Test without a value for id multiple times"""
         rec1 = Rectangle(8, 18)
         rec2 = Rectangle(12, 9)
-        self.assertEqual(rec1.id, 2)
-        self.assertEqual(rec2.id, 3)
+        self.assertEqual(rec1.id, 1)
+        self.assertEqual(rec2.id, 2)
 
     def test_rectangle_with_no_args(self):
         """testing with no argument in rectangle()"""
