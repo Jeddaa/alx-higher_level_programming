@@ -104,6 +104,11 @@ class TestRectangle_width(unittest.TestCase):
         rec1.width = 10
         self.assertEqual(rec1.width, 10)
 
+    def test_width_as_None(self):
+        """Test width as None"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(None, 2, 3, 2).width)
+
     def test_width_as_float(self):
         """Test width as float"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -129,6 +134,11 @@ class TestRectangle_width(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             print(Rectangle(True, 18, 2, 0, 2).width)
 
+    def test_width_as_complex(self):
+        """Test width as complex"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle(complex(5), 18, 2, 0, 2).width)
+
     def test_width_as_inf(self):
         """Test width as inf"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -148,6 +158,16 @@ class TestRectangle_width(unittest.TestCase):
         """Test width as set"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             print(Rectangle({10}, 18, 2, 0, 2).width)
+
+    def test_width_as_dict(self):
+        """Test width as dictionary"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle({'name': 'ade', 'age': 10}, 18, 2, 0, 2).width)
+    
+    def test_width_as_tupple(self):
+        """Test width as tupple"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            print(Rectangle((1, 2, 5), 18, 2, 0, 2).width)
 
     def test_width_as_byte(self):
         """Test width as byte"""
@@ -186,6 +206,16 @@ class TestRectangle_height(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             print(Rectangle(18, 0, 2, 0, 2).height)
 
+    def test_height_as_complex(self):
+        """Test height as complex value"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            print(Rectangle(18, complex(7), 2, 0, 2).height)
+
+    def test_height_as_None(self):
+        """Test height as None"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            print(Rectangle(1, None, 3, 0).height)
+
     def test_height_as_negative(self):
         """Test height as negative value"""
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
@@ -216,6 +246,16 @@ class TestRectangle_height(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             print(Rectangle(18, {10}, 2, 0, 2).height)
 
+    def test_height_as_dict(self):
+        """Test height as dictionary"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            print(Rectangle(18, {'name': 'ade', 'age': 10}, 2, 0, 2).height)
+    
+    def test_height_as_tupple(self):
+        """Test height as tupple"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            print(Rectangle(18, (1, 2, 5), 2, 0, 2).y)
+
     def test_height_as_byte(self):
         """Test height as byte"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
@@ -243,6 +283,16 @@ class TestRectangle_x(unittest.TestCase):
         rec1 = Rectangle(8, 18, 0, 2, 2)
         self.assertEqual(rec1.x, 0)
     
+    def test_x_as_None(self):
+        """Test x as None"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            print(Rectangle(1, 2, None, 2).x)
+
+    def test_x_as_complex(self):
+        """Test x as complex"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            print(Rectangle(18, 0, 2j, 0, 2).x)
+
     def test_x_as_float(self):
         """Test x as float"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -282,6 +332,16 @@ class TestRectangle_x(unittest.TestCase):
         """Test x as set"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             print(Rectangle(12, 8, {3}, 0, 2).x)
+    
+    def test_x_as_dict(self):
+        """Test x as dictionary"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            print(Rectangle(18, 2, {'name': 'ade', 'age': 10}, 0, 2).x)
+    
+    def test_x_as_tupple(self):
+        """Test x as tupple"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            print(Rectangle(18, 2, (1, 2, 5), 0, 2).x)
 
     def test_x_as_byte(self):
         """Test x as byte"""
@@ -309,7 +369,17 @@ class TestRectangle_y(unittest.TestCase):
         """Test y as zero"""
         rec1 = Rectangle(8, 18, 2, 0, 2)
         self.assertEqual(rec1.y, 0)
-    
+
+    def test_y_as_None(self):
+        """Test y as None"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            print(Rectangle(1, 2, 3, None).y)
+
+    def test_y_as_complex(self):
+        """Test y as complex"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            print(Rectangle(18, 2, 2, 2j, 1).y)
+            
     def test_y_as_float(self):
         """Test y as float"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
@@ -349,6 +419,16 @@ class TestRectangle_y(unittest.TestCase):
         """Test y as set"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             print(Rectangle(12, 8, 0, {3}, 2).y)
+
+    def test_y_as_dict(self):
+        """Test y as dictionary"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            print(Rectangle(18, 2, 0, {'name': 'ade', 'age': 10}, 2).y)
+    
+    def test_y_as_tupple(self):
+        """Test y as tupple"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            print(Rectangle(18, 2, 0, (1, 2, 5), 2).y)
 
     def test_y_as_byte(self):
         """Test y as byte"""
