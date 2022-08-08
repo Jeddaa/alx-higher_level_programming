@@ -16,5 +16,5 @@ class TestSquare_(unittest.TestCase):
     def test_square_with_one_arg(self):
         """testing with one argument"""
         sq = Square(13)
-        self.assertEqual(str(sq), "[Square] (1) 0/0- 10)")
+        self.assertEqual(str(sq), "[Square] (1) 0/0- 13)")
 
