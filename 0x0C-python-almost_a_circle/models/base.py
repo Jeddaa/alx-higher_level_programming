@@ -71,9 +71,9 @@ class Base:
             if list_objs is None or len(list_objs) <= 0:
                 f.write('[]')
             else:
-                if cls.__name__ is "Rectangle":
+                if cls.__name__ == "Rectangle":
                     fields = ['id', 'width', 'height', 'x', 'y']
-                elif cls.__name__ is "Square":
+                elif cls.__name__ == "Square":
                     fields = ['id', 'size', 'x', 'y']
                 writer = csv.DictWriter(f, fieldnames=fields)
                 for obj in list_objs:
