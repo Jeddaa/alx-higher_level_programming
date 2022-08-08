@@ -11,7 +11,6 @@ class Square(Rectangle):
         """validation of attribute: size"""
         self.size = self.width
 
-
     @property
     def size(self):
         """retrieving the size using the width"""
@@ -26,7 +25,7 @@ class Square(Rectangle):
     def __str__(self):
         """string representation of the square"""
         return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.__x, self.__y, self.__size)
+            self.id, self.x, self.y, self.size)
 
     def update(self, *args, **kwargs):
         """assigning arguments to each attributes using args and kwargs"""
