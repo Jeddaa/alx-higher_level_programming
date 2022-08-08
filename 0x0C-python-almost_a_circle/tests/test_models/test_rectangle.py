@@ -579,7 +579,13 @@ class TestRectangle_update(unittest.TestCase):
         rec = Rectangle(18, 2, 0, 1, 2)
         rec.update()
         self.assertEqual(str(rec), "[Rectangle] (2) 0/1 - 18/2")
-    
+
+    def test_update_arg_withNone(self):
+        """testing update function with None"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(None)
+        self.assertEqual(str(rec), "[Rectangle] (None) 0/1 - 18/2")
+
     def test_update_one_arg(self):
         """testing update function with 1 argument"""
         rec = Rectangle(18, 2, 0, 1, 2)
@@ -592,36 +598,133 @@ class TestRectangle_update(unittest.TestCase):
         rec.update(10, 5)
         self.assertEqual(str(rec), "[Rectangle] (10) 0/1 - 5/2")
     
-    def test_update(self):
-        """testing update with width as string"""
+    def test_update_three_arg(self):
+        """testing update function with 3 arguments"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(10, 5, 9)
+        self.assertEqual(str(rec), "[Rectangle] (10) 0/1 - 5/9")
+    
+    def test_update_four_arg(self):
+        """testing update function with 4 arguments"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(10, 5, 9, 2)
+        self.assertEqual(str(rec), "[Rectangle] (10) 2/1 - 5/9")
+    
+    def test_update_five_arg(self):
+        """testing update function with 5 arguments"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(10, 5, 9, 2, 1)
+        self.assertEqual(str(rec), "[Rectangle] (10) 2/1 - 5/9")
+
+    def test_update_more_than_five_arg(self):
+        """testing update function with more than 5 arguments"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(10, 5, 9, 2, 1, 5)
+        self.assertEqual(str(rec), "[Rectangle] (10) 2/1 - 5/9")
+
+     def test_update_args_twice(self):
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(18, 2, 0, 1, 2, 20)
+        rec.update(16, 15, 8, 2, 3, 9)
+        self.assertNotEqual("[Rectangle] (16) 2/3 - 15/8", str(r))
+
+    def test_update_arg(self):
+        """testing update args with width as string"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             rec = Rectangle(18, 2, 0, 1, 2)
             print(rec.update(1, "hey", 3, 4))
 
-    def test_update(self):
+    def test_update_arg(self):
+        """testing update args with width as 0"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 0, 3, 4))
+
+    def test_update_arg_negativeWidth(self):
+        """testing update args with width as negative"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, -3, 3, 4))
+
+    def test_update_args_height(self):
         """testing update with height as string"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             rec = Rectangle(18, 2, 0, 1, 2)
             print(rec.update(1, 10, "hey", 3, 4))
 
-    def test_update(self):
+    def test_update_args_zeroHeight(self):
+        """testing update args with height as 0"""
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 10, 0, 3, 4))
+
+    def test_update_args_negativeHeight(self):
+        """testing update args with height as negative"""
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 10, -10, 3, 4))
+
+    def test_update_args_string_x(self):
         """testing update with x as string"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             rec = Rectangle(18, 2, 0, 1, 2)
             print(rec.update(1, 10, 9, "3", 4))
     
-    def test_update(self):
+    def test_update_args_negativeX(self):
+        """testing update with x as negative"""
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 10, 9, -2, 4))
+
+    def test_update_args_stringY(self):
         """testing update with y as string"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             rec = Rectangle(18, 2, 0, 1, 2)
             print(rec.update(1, 10, 8, 3, "4"))
-        
-    def test_update(self):
-        """testing update with 6 as string"""
-        rec = Rectangle(18, 2, 0, 1, 2)
-        print(rec.update(1, 10, 8, 3, 4, 2))
-        self.assertEqual(rec, None)
     
+    def test_update_args_negativeY(self):
+        """testing update with y as negative"""
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 10, 8, 3, -4))
+        
+    def test_update_arg_width_beforeHeight(self):
+        """testing update args with width before height"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, "hey", -3, 4, 2))
+
+    def test_update_arg_width_beforeX(self):
+        """testing update args with width before x"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, "hey", 3, True, 2))
+
+    def test_update_arg_width_beforeY(self):
+        """testing update args with width before x"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, True, 3, 2, float('inf')))
+
+    def test_update_arg_height_beforeX(self):
+        """testing update args with height before x"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 10, {'name': "ade", 'age': 23}, -2, 1))
+
+    def test_update_arg_height_beforeY(self):
+        """testing update args with height before x"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 10, float('NaN'), 2, float('inf')))
+    
+    def test_update_arg_x_beforeY(self):
+        """testing update args with width before x"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(1, 10, 13, {10}, 2))
+    
+
 class TestRectangle_update_kwargs(unittest.TestCase):
     """testing update kwargs of Rectangle class."""
     def test_update_kwargs_one(self):
