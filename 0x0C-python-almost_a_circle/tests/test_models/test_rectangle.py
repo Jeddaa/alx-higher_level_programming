@@ -615,7 +615,7 @@ class TestRectangle_update(unittest.TestCase):
         rec = Rectangle(18, 2, 0, 1, 2)
         rec.update(10, 5, 9, 2, 1)
         self.assertEqual(str(rec), "[Rectangle] (10) 2/1 - 5/9")
-
+        
     def test_update_more_than_five_arg(self):
         """testing update function with more than 5 arguments"""
         rec = Rectangle(18, 2, 0, 1, 2)
@@ -626,7 +626,7 @@ class TestRectangle_update(unittest.TestCase):
         rec = Rectangle(10, 10, 10, 10, 10)
         rec.update(18, 2, 10, 1, 2, 20)
         rec.update(16, 15, 8, 2, 3, 9)
-        self.assertNotEqual("[Rectangle] (16) 2/3 - 15/8", str(rec))
+        self.assertEqual("[Rectangle] (16) 2/3 - 15/8", str(rec))
 
     def test_update_arg(self):
         """testing update args with width as string"""
