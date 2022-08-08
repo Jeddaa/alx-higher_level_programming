@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Define a class Base"""
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -57,5 +59,40 @@ class Base:
             with open(cls.__name__ + ".json", 'r') as file1:
                 json_file = Base.from_json_string(file1.read())
                 return [cls.create(**lst) for lst in json_file]
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes the CSV string representation of list_objs to a file"""
+    
+        fields = []
+        with open(cls.__name__ + ".csv", 'w') as f:
+            if list_objs is None or len(list_objs) <= 0:
+                f.write('[]')
+            else:
+                if cls.__name__ is "Rectangle":
+                    fields = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ is "Square":
+                    fields = ['id', 'size', 'x', 'y']
+                writer = csv.DictWriter(f, fieldnames=fields)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes the CSV string representation of list_objs from a file"""
+        fields = []
+        filename = str(cls.__name__) + ".csv"
+        try:
+            with open(filename, "r", newline="") as file1:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(file1, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**dic) for dic in list_dicts]
         except IOError:
             return []
