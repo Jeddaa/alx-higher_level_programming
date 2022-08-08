@@ -11,24 +11,27 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id=None)
         """validation of attribute: size"""
         self.size = size
-    """retrieving the size using the width"""
+
+
     @property
     def size(self):
+        """retrieving the size using the width"""
         return self.width
 
-    """setting the size"""
     @size.setter
     def size(self, value):
+        """setting the size"""
         self.width = value
         self.height = value
 
     def __str__(self):
-        return f"[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y}\
-- {self.size}"
+        """string representation of the square"""
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.__x, self.__y, self.__size)
 
-    """assigning arguments to each attributes using args and kwargs"""
     def update(self, *args, **kwargs):
-        if args:
+        """assigning arguments to each attributes using args and kwargs"""
+        if args is not None and len(args) > 0:
             for key, value in enumerate(args):
                 if key == 0:
                     self.id = value
@@ -38,7 +41,6 @@ class Square(Rectangle):
                     self.x = value
                 elif key == 3:
                     self.y = value
-            return self.__str__
         else:
             for key, value in kwargs.items():
                 if key == "size":
@@ -49,10 +51,9 @@ class Square(Rectangle):
                     self.y = value
                 elif key == "id":
                     self.id = value
-            return self.__str__
-    
-    """returns dictionary representation of square"""
+
     def to_dictionary(self):
+        """returns dictionary representation of square"""
         dic = {}
         dic["id"] = self.id
         dic["size"] = self.size
