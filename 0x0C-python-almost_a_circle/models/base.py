@@ -64,8 +64,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Serializes the CSV string representation of list_objs to a file"""
-    
+        """Serializes the CSV str representation of list_objs to a file"""
         fields = []
         with open(cls.__name__ + ".csv", 'w') as f:
             if list_objs is None or len(list_objs) <= 0:
@@ -81,7 +80,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """Deserializes the CSV string representation of list_objs from a file"""
+        """Deserializes the CSV str representation of list_objs 4rm a file"""
         fields = []
         filename = str(cls.__name__) + ".csv"
         try:
