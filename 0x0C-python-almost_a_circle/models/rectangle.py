@@ -6,38 +6,11 @@ from models.base import Base
 class Rectangle(Base):
     """ the class Rectangle that inherits from class Base"""
     def __init__(self, width, height, x=0, y=0, id=None):
-        """validation of attribute (width)"""
-        if type(width) is not int:
-            raise TypeError("width must be an integer")
-        elif width <= 0:
-            raise ValueError("width must be > 0")
-        else:
-            self.__width = width
-
-        """validation of attribute (height)"""
-        if type(height) is not int:
-            raise TypeError("height must be an integer")
-        elif height <= 0:
-            raise ValueError("height must be > 0")
-        else:
-            self.__height = height
-
-        """validation of attribute (x)"""
-        if type(x) is not int:
-            raise TypeError("x must be an integer")
-        elif x < 0:
-            raise ValueError("x must be >= 0")
-        else:
-            self.__x = x
-
-        """validation of attribute (y)"""
-        if type(y) is not int:
-            raise TypeError("y must be an integer")
-        elif y < 0:
-            raise ValueError("y must be >= 0")
-        else:
-            self.__y = y
-
+        """validation of attributes"""
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         """Call to super function to have
         access to all attributes/methods"""
         super().__init__(id)
