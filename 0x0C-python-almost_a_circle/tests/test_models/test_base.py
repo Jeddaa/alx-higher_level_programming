@@ -73,7 +73,7 @@ class TestBase(unittest.TestCase):
 
     def test_base_with_nan(self):
         """Test with a NaN for id"""
-        self.assertEqual(Base(float('nan')).id, float('nan'))
+        self.assertNotEqual(Base(float('nan')).id, float('nan'))
 
     def test_base_with_inf(self):
         """Test with a inf for id"""
