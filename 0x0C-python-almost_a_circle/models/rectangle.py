@@ -85,8 +85,8 @@ class Rectangle(Base):
 
     """string representation of the rectangle"""
     def __str__(self):
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__x}/{self.__y} - \
-    {self.__width}/{self.__height}"
+        return f"[{self.__class__.__name__}] ({self.id}) \
+            {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
     """assigning arguments to each attributes using args and kwargs"""
     def update(self, *args, **kwargs):
@@ -102,7 +102,7 @@ class Rectangle(Base):
                     self.x = value
                 elif key == 4:
                     self.y = value
-            
+
         else:
             for key, value in kwargs.items():
                 if key == "width":
@@ -116,7 +116,7 @@ class Rectangle(Base):
                 elif key == "id":
                     self.id = value
             return self.__str__
-        
+
     """returns dictionary representation of Rectangle"""
     def to_dictionary(self):
         dic = {}
