@@ -18,3 +18,17 @@ class TestSquare_(unittest.TestCase):
         sq = Square(13)
         self.assertEqual(str(sq), "[Square] (1) 0/0- 13)")
 
+    def test_rectangle_with_three_args(self):
+        """Test with two arguments"""
+        sq = Square(13, 1)
+        self.assertEqual(str(sq), "[Square] (1) 1/0- 13)")
+
+    def test_rectangle_with_four_args(self):
+        """Test with three arguments"""
+        sq = Square(13, 1, 3)
+        self.assertEqual(str(sq), "[Square] (1) 1/3- 13)")
+
+    def test_with_five_args(self):
+        """Test with five arguments"""
+        rec1 = Rectangle(8, 18, 2, 0, 2)
+        self.assertEqual(rec1.id, 2)
