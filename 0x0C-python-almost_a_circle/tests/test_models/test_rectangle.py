@@ -622,7 +622,7 @@ class TestRectangle_update(unittest.TestCase):
         rec.update(10, 5, 9, 2, 1, 5)
         self.assertEqual(str(rec), "[Rectangle] (10) 2/1 - 5/9")
 
-     def test_update_args_twice(self):
+    def test_update_args_twice(self):
         rec = Rectangle(10, 10, 10, 10, 10)
         rec.update(18, 2, 0, 1, 2, 20)
         rec.update(16, 15, 8, 2, 3, 9)
