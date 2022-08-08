@@ -626,7 +626,7 @@ class TestRectangle_update(unittest.TestCase):
         rec = Rectangle(10, 10, 10, 10, 10)
         rec.update(18, 2, 10, 1, 2, 20)
         rec.update(16, 15, 8, 2, 3, 9)
-        self.assertNotEqual("[Rectangle] (16) 2/3 - 15/8", str(r))
+        self.assertNotEqual("[Rectangle] (16) 2/3 - 15/8", str(rec))
 
     def test_update_arg(self):
         """testing update args with width as string"""
