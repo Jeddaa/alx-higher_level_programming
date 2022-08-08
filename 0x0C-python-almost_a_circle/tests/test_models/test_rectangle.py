@@ -835,6 +835,6 @@ class TestRectangle_dictionary(unittest.TestCase):
         self.assertEqual(str(rec), {'id': 5, 'width': 10, 'height': 2, 'x': 1, 'y': 9})
 
     def test_to_dictionary(self):
-        with self.assertRaises(ValueError, "y must be >= 0"):
+        with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, 9, 5)
             print(r.to_dictionary(1))
