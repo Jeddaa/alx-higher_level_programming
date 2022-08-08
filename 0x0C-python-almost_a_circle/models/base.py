@@ -6,7 +6,7 @@ import json
 class Base:
     """the Base class"""
     __nb_objects = 0
-    
+
     def __init__(self, id=None):
         """the class constructor"""
         if id is not None:
