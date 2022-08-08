@@ -827,3 +827,14 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             rec = Rectangle(18, 2, 0, 1, 2)
             print(rec.update(height=8, width=3, y=-4))
+
+class TestRectangle_dictionary(unittest.TestCase):
+    def test_to_dictionary(self):
+        r = Rectangle(10, 2, 1, 9, 5)
+        print(r.to_dictionary())
+        self.assertEqual(str(rec), {'id': 5, 'width': 10, 'height': 2, 'x': 1, 'y': 9})
+
+    def test_to_dictionary(self):
+        with self.assertRaises(ValueError, "y must be >= 0"):
+            r = Rectangle(10, 2, 1, 9, 5)
+            print(r.to_dictionary(1))
