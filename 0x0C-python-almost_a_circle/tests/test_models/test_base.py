@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 """Unittests for base."""
-
-
-import json
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+from unittest import TestCase
 
 
 class TestBase(unittest.TestCase):
@@ -75,11 +73,11 @@ class TestBase(unittest.TestCase):
 
     def test_base_with_nan(self):
         """Test with a NaN for id"""
-        self.assertEqual(Base(float('NaN')).id, nan)
+        self.assertEqual(Base(float('NaN')).id, "nan")
 
     def test_base_with_inf(self):
         """Test with a inf for id"""
-        self.assertEqual(Base(float('inf')).id, nan)
+        self.assertEqual(Base(float('inf')).id, "inf")
 
     def test_base_with_byte(self):
         """Test with a byte datatype for id"""
