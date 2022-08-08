@@ -732,3 +732,98 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         rec = Rectangle(18, 2, 0, 1, 2)
         rec.update(id=1)
         self.assertEqual(str(rec), "[Rectangle] (1) 0/1 - 18/2")
+
+    def test_update_two_kwarg(self):
+        """testing update kwargs function with 2 arguments"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(id=10, width=5)
+        self.assertEqual(str(rec), "[Rectangle] (10) 0/1 - 5/2")
+    
+    def test_update_three_kwarg(self):
+        """testing update kwargs function with 3 arguments"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(id=10, height=9, width=5)
+        self.assertEqual(str(rec), "[Rectangle] (10) 0/1 - 5/9")
+    
+    def test_update_four_kwarg(self):
+        """testing update kwargs function with 4 arguments"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(width=5, x=2, id=10, height=9)
+        self.assertEqual(str(rec), "[Rectangle] (10) 2/1 - 5/9")
+
+    def test_update_five_arg(self):
+        """testing update function with 5 arguments"""
+        rec = Rectangle(18, 2, 0, 1, 2)
+        rec.update(y=1, width=5, id=10, x=2, height=9)
+        self.assertEqual(str(rec), "[Rectangle] (10) 2/1 - 5/9")
+    
+    def test_update_kwargs_with_more_values(self):
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(id=16, width=15, y=3, x=2, height=8, z=9)
+        self.assertEqual("[Rectangle] (16) 2/3 - 15/8", str(rec))
+    
+    def test_update_kwargs_twice(self):
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(id=18, width=2, height=10, y=2, x=1)
+        rec.update(id=16, width=15, y=3, x=2, height=8)
+        self.assertEqual("[Rectangle] (16) 2/3 - 15/8", str(rec))
+
+    def test_update_kwargs(self):
+        """testing update kwargs with width as string"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(id=1, width="hey", height=3, x=4))
+        
+    def test_update_kwargs(self):
+        """testing update kwargs with width as 0"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(x=1, width=0, height=3, y=4))
+
+    def test_update_arg_negativeWidth(self):
+        """testing update kwargs with width as negative"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(id=1, width=-3, y=3, height=4))
+
+    def test_update_kwargs_height(self):
+        """testing update kwargs with height as string"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(id=1, height="hey", width=3))
+
+    def test_update_kwargs_zeroHeight(self):
+        """testing update kwargs with height as 0"""
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(width=1, height=0, y=3))
+
+    def test_update_kwargs_negativeHeight(self):
+        """testing update kwargs with height as negative"""
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(height=-10))
+
+    def test_update_args_string_x(self):
+        """testing update with x as string"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(y=1, height=10, width=9, x="3", id=4))
+    
+    def test_update_args_negativeX(self):
+        """testing update with x as negative"""
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(width=10, height=9, x=-2, y=4))
+
+    def test_update_args_stringY(self):
+        """testing update with y as string"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(id=10, height=8, width=3, y="4"))
+    
+    def test_update_args_negativeY(self):
+        """testing update with y as negative"""
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            rec = Rectangle(18, 2, 0, 1, 2)
+            print(rec.update(height=8, width=3, y=-4))
