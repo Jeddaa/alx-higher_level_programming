@@ -624,7 +624,7 @@ class TestRectangle_update(unittest.TestCase):
 
     def test_update_args_twice(self):
         rec = Rectangle(10, 10, 10, 10, 10)
-        rec.update(18, 2, 0, 1, 2, 20)
+        rec.update(18, 2, 10, 1, 2, 20)
         rec.update(16, 15, 8, 2, 3, 9)
         self.assertNotEqual("[Rectangle] (16) 2/3 - 15/8", str(r))
 
