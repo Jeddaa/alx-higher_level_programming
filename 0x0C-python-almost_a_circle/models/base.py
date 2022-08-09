@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Define a class Base"""
+
+
 import json
 import csv
 import turtle
