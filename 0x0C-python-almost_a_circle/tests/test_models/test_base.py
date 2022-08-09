@@ -4,8 +4,6 @@ import os
 import pep8
 import unittest
 from models.base import Base
-from models.rectangle import Rectangle
-from models.square import Square
 
 
 class TestPep8(unittest.TestCase):
