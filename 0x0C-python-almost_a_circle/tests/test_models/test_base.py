@@ -97,6 +97,3 @@ class TestBase(unittest.TestCase):
     def test_base_with_nb_instances(self):
         with self.assertRaises(AttributeError):
             print(Base(12).__nb_instances)
-
-class TestBase_to_json_string(unittest.TestCase):
-    """Define unittests for base"""
