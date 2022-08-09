@@ -97,3 +97,6 @@ class TestBase(unittest.TestCase):
     def test_base_with_nb_instances(self):
         with self.assertRaises(AttributeError):
             print(Base(12).__nb_instances)
+
+if __name__ == "__main__":
+    unittest.main()
