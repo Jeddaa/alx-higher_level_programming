@@ -12,7 +12,7 @@ connet = MySQLdb.connect(host="localhost",
                          database=argv[3])
 """ create cursor to execute queries in SQL"""
 cursor = connet.cursor()
-query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
 cursor.execute(query)
 records = cursor.fetchall()
 for i in records:
