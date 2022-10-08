@@ -11,8 +11,8 @@ if __name__ == "__main__":
                              user=argv[1],
                              password=argv[2],
                              database=argv[3])
-    #create cursor to execute queries in SQL
 
+    # create cursor to execute queries in SQL
     cursor = connet.cursor()
     query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
     cursor.execute(query)

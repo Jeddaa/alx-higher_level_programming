@@ -16,7 +16,8 @@ if __name__ == "__main__":
                  ORDER BY id ASC".format(argv[4])
     cursor.execute(query)
     records = cursor.fetchall()
-    for i in records:
-        print(i)
+    for row in records:
+        if row[1] == argv[4]:
+            print(row)
     cursor.close()
     connet.close()
