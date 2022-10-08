@@ -16,7 +16,6 @@ query = "SELECT cities.name FROM states INNER JOIN cities ON \
             ORDER BY cities.id ASC"
 cursor.execute(query, (argv[4],))
 records = cursor.fetchall()
-for i in records:
-    print(', '.join(["{:s}".format(i[0])]))
+print(', '.join(["{:s}".format(city[0]) for city in records]))
 cursor.close()
 connet.close()
