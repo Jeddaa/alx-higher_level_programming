@@ -13,10 +13,11 @@ connet = MySQLdb.connect(host="localhost",
 #create cursor to execute queries in SQL
 
 cursor = connet.cursor()
-query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC"
+query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
 cursor.execute(query)
 records = cursor.fetchall()
 for i in records:
-    print(i)
+    if i[1][0] == 'N':
+        print(i)
 cursor.close()
 connet.close()
